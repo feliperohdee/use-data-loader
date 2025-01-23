@@ -1,0 +1,29 @@
+{
+	"author": "Felipe Rohde <feliperohdee@gmail.com>",
+	"devDependencies": {
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.2"
+	},
+	"files": [
+		"dist"
+	],
+	"license": "MIT",
+	"main": "dist/index.js",
+	"name": "use-data-loader",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/feliperohdee/use-data-loader"
+	},
+	"scripts": {
+		"build": "rm -rf dist && tsc -p tsconfig.json",
+		"lint": "prettier --write . && yarn tsc",
+		"npm-publish": "yarn test --run && yarn build && yarn version --patch --no-git-tag-version && yarn publish --non-interactive",
+		"test": "vitest"
+	},
+	"version": "1.0.0",
+	"dependencies": {
+		"@types/lodash": "^4.17.14",
+		"lodash": "^4.17.21"
+	}
+}
