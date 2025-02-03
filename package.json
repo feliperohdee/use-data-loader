@@ -21,7 +21,7 @@
 		"npm-publish": "yarn test --run && yarn build && yarn version --patch --no-git-tag-version && yarn publish --non-interactive",
 		"test": "vitest"
 	},
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"dependencies": {
 		"@types/lodash": "^4.17.14",
 		"lodash": "^4.17.21"

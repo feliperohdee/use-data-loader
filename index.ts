@@ -19,7 +19,7 @@ namespace DataLoader {
 		keys: K[];
 	};
 
-	export type BatchLoadFn<K, V> = (keys: ReadonlyArray<K>) => Promise<ReadonlyArray<V | Error>>;
+	export type BatchLoadFn<K, V> = (keys: K[]) => Promise<(V | Error)[]>;
 	export type Options<K, V, C = K> = {
 		batchScheduleFn?: (callback: () => void) => void;
 		cache?: boolean;
@@ -87,7 +87,7 @@ class DataLoader<K, V, C = K> {
 		return promise;
 	}
 
-	async loadMany(keys: ReadonlyArray<K>): Promise<(V | Error)[]> {
+	async loadMany(keys: K[]): Promise<(V | Error)[]> {
 		if (!this.isArrayLike(keys)) {
 			throw new TypeError('The loader.loadMany() function must be called with key[] ' + `but got: ${String(keys)}.`);
 		}
