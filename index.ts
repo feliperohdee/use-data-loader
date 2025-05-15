@@ -20,7 +20,7 @@ namespace DataLoader {
 	};
 
 	export type BatchLoadFn<K, V> = (keys: K[]) => Promise<(V | Error)[]>;
-	export type Options<K, V, C = K> = {
+	export type Options<K, C = K> = {
 		batchScheduleFn?: (callback: () => void) => void;
 		cache?: boolean;
 		cacheKeyFn?: (key: K) => C;
@@ -36,7 +36,7 @@ class DataLoader<K, V, C = K> {
 	private cacheMap: Map<C, Promise<V>> | null;
 	private maxBatchSize: number;
 
-	constructor(batchLoadFn: DataLoader.BatchLoadFn<K, V>, options: DataLoader.Options<K, V, C> = {}) {
+	constructor(batchLoadFn: DataLoader.BatchLoadFn<K, V>, options: DataLoader.Options<K, C> = {}) {
 		if (!isFunction(batchLoadFn)) {
 			throw new TypeError(
 				'DataLoader must be constructed with a function which accepts ' + `key[] and returns Promise<value[]>, but got: ${batchLoadFn}.`
