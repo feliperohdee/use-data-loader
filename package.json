@@ -1,7 +1,7 @@
 {
 	"author": "Felipe Rohde <feliperohdee@gmail.com>",
 	"devDependencies": {
-		"@types/lodash": "^4.17.14",
+		"@types/lodash": "^4.17.18",
 		"eslint": "^9.26.0",
 		"prettier": "^3.4.2",
 		"typescript": "^5.7.3",
@@ -24,7 +24,7 @@
 		"npm-publish": "yarn test --run && yarn build && yarn version --patch --no-git-tag-version && yarn publish --non-interactive",
 		"test": "vitest"
 	},
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"dependencies": {
 		"lodash": "^4.17.21"
 	}
